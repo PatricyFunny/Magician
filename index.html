@@ -1,19 +1,30 @@
-
-<script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
+<script src="https://lf-cdn.coze.cn/obj/unpkg/flow-platform/chat-app-sdk/0.1.0-beta.5/libs/cn/index.js"></script>
 <script>
-  new CozeWebSDK.WebChatClient({
-    config: {
-      bot_id: '7638983146491052085',
-    },
-    componentProps: {
-      title: 'Coze',
-    },
-    auth: {
-      type: 'token',
-      token: 'pat_LRWoLmFxPZ8TwEeeuvwj6vKjQHgnpOe8W0Gk6LQpTswhzqvIRLBiOggw7wYl24yG',
-      onRefreshToken: function () {
-        return 'pat_LRWoLmFxPZ8TwEeeuvwj6vKjQHgnpOe8W0Gk6LQpTswhzqvIRLBiOggw7wYl24yG'
-      }
-    }
-  });
+    new CozeWebSDK.WebChatClient({
+        config: {
+            bot_id: '7638983146491052085',
+        },
+        componentProps: {
+            title: '頑皮公主',
+        },
+        auth: {
+            type: 'token',
+            token: 'pat_LRWoLmFxPZ8TwEeeuvwj6vKjQHgnpOe8W0Gk6LQpTswhzqvIRLBiOggw7wYl24yG',
+            onRefreshToken: function () {
+                return 'pat_LRWoLmFxPZ8TwEeeuvwj6vKjQHgnpOe8W0Gk6LQpTswhzqvIRLBiOggw7wYl24yG'
+            }
+        }
+    });
 </script>
+<style>
+    /* 這段可以強迫讓右下角的小圖標直接變成全螢幕滿版 */
+    iframe {
+        width: 100% !important;
+        height: 100% !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        border: none !important;
+        z-index: 999999 !important;
+    }
+</style>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>頑皮公主的巧幻空間</title>
+    <style>
+        /* 調整 1：讓整個網頁背景乾淨，並強制撐開畫面 */
+        html, body {
+            margin: 0; padding: 0; width: 100%; height: 100%;
+            background-color: #fafafa; overflow: hidden;
+        }
+        /* 調整 2：這段非常關鍵！強制讓 Coze 的聊天視窗直接「全螢幕滿版」填滿網頁，這樣就能徹底甩掉官方右邊欄 */
+        iframe, .coze-web-chat-client-container {
+            width: 100% !important; height: 100% !important;
+            border: none !important; position: fixed !important;
+            top: 0 !important; left: 0 !important; right: 0 !important; bottom: 0 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <script src="https://sf-cdn.coze.com/obj/unpkg-va/flow-platform/chat-app-sdk/1.2.0-beta.6/libs/oversea/index.js"></script>
+    <script>
+        new CozeWebSDK.WebChatClient({
+            config: {
+                bot_id: '7638983146491052085',
+            },
+            componentProps: {
+                title: '頑皮公主',
+                // 調整 3：新增此設定，讓使用者一打開網頁，對話框就自動打開，不需要去點右下角圖示
+                chatableConfig: {
+                    default_open: true 
+                }
+            },
+            auth: {
+                type: 'token',
+                // 💡 溫馨提醒：請記得將下方的 'pat_***' 更換為您今天從 Coze 發佈頁面（Chat SDK -> Installation）複製出來的最新完整 Token
+                token: 'pat_T2qS6283M47Xo9S49z08I06qI70S1y7B99Q1M44x599E0x30I9X3S99S46P690X8', 
+                onRefreshToken: function () {
+                    return 'pat_T2qS6283M47Xo9S49z08I06qI70S1y7B99Q1M44x599E0x30I9X3S99S46P690X8'
+                }
+            }
+        });
+    </script>
+</body>
+</html>
